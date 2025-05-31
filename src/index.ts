@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRouter from "./routes/authRoute";
-
+import transactionRouter from "./routes/transactionRoute";
 dotenv.config();
 
 // Connect to MongoDB
@@ -20,5 +20,6 @@ app.get("/", (req, res) => {
 
 app.use(express.json());
 app.use("/auth", authRouter);
+app.use("/transactions", transactionRouter);
 
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
